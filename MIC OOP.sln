@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "H_1607_Triangle", "Problem-
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "H_1807", "H_1807", "{A854D266-BE08-4C3A-8C95-F48A7F4CD705}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chess", "ConsoleApp1\Chess.csproj", "{CB569848-A639-4D29-A1A3-761CD6366F24}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chess", "Chess\Chess.csproj", "{CB569848-A639-4D29-A1A3-761CD6366F24}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
