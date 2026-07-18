@@ -8,6 +8,8 @@ namespace homework_1607
         static void Main()
         {
             CreateMatrix();
+            ReadPosition();
+            ReadChessPiece();
         }
         public static void CreateMatrix()
         {
@@ -90,9 +92,36 @@ namespace homework_1607
             {
                 Console.WriteLine("Please enter a row(1-8):");
             }
-            while (!int.TryParse(Console.Read() , out row) || row<1 || row > 8);
-            return row;
+            while (!int.TryParse(Console.ReadLine() , out row) || row<1 || row > 8);
+
+
+            char column;
+            do
+            {
+                Console.WriteLine("Please enter a column(A-H):");
+            }
+            while (!char.TryParse(Console.ReadLine().ToUpper(), out column) || column<'A' || column>'H');
+            return new Position(row,column);
         }
+        enum ChessPiece
+        {
+            R,//rook
+            N,//knight
+            B,//bishop
+            Q,//queen
+            K//king
+        }
+        static ChessPiece ReadChessPiece()
+        {
+            ChessPiece piece;
+            do
+            {
+                Console.WriteLine("Please enter a chess piece(R,N,B,Q,K):");
+            }
+            while (!Enum.TryParse(Console.ReadLine().ToUpper(), out piece));
+            return piece;
+        }
+
     }
 
 }
