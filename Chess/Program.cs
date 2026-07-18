@@ -1,8 +1,9 @@
 ﻿using System;
 
+
 namespace homework_1607
 {
-    class chess
+    class Chess
     {
         static void Main()
         {
@@ -36,7 +37,7 @@ namespace homework_1607
         }
         static void FillBoard(char[,] board)
         {
-            for (int i = 0; i <8; i++)
+            for (int i = 0; i < 8; i++)
             {
                 for (int j = 1; j < 9; j++)
                 {
@@ -44,7 +45,7 @@ namespace homework_1607
                     {
                         board[i, j] = '#';
                     }
-                    else board[i, j] = '*';                    
+                    else board[i, j] = '*';
                 }
             }
 
@@ -71,12 +72,31 @@ namespace homework_1607
                 Console.Write($"{board[8, j]} ");
             }
         }
-        static void GetValues()
+        struct Position
         {
-            Console.WriteLine("Please enter a coordinate!(a1-h8)");
-
+            public int row;
+            public char column;
+            public Position(int row, char column)
+            {
+                this.row = row;
+                this.column = column;
+            }
         }
+        static Position ReadPosition()
+        {
+            int row;
 
+            do
+            {
+                Console.WriteLine("Please enter a row(1-8):");
+            }
+            while (!int.TryParse(Console.Read() , out row) || row<1 || row > 8);
+            return row;
+        }
     }
 
 }
+
+
+
+        
