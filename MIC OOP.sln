@@ -3,10 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.13.35825.156
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "H_1607", "H_1607", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "H_1607_Triangle", "Problem-01-Triangle\H_1607_Triangle.csproj", "{199D88BA-36D5-4194-B520-31B090ACA6AF}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "H_1807", "H_1807", "{A854D266-BE08-4C3A-8C95-F48A7F4CD705}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chess", "Chess\Chess.csproj", "{CB569848-A639-4D29-A1A3-761CD6366F24}"
@@ -19,10 +15,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{199D88BA-36D5-4194-B520-31B090ACA6AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{199D88BA-36D5-4194-B520-31B090ACA6AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{199D88BA-36D5-4194-B520-31B090ACA6AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{199D88BA-36D5-4194-B520-31B090ACA6AF}.Release|Any CPU.Build.0 = Release|Any CPU
 		{CB569848-A639-4D29-A1A3-761CD6366F24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{CB569848-A639-4D29-A1A3-761CD6366F24}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CB569848-A639-4D29-A1A3-761CD6366F24}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -36,7 +28,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{199D88BA-36D5-4194-B520-31B090ACA6AF} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{CB569848-A639-4D29-A1A3-761CD6366F24} = {A854D266-BE08-4C3A-8C95-F48A7F4CD705}
 		{3C92B946-C90C-4EFE-B295-369C50580DD0} = {A854D266-BE08-4C3A-8C95-F48A7F4CD705}
 	EndGlobalSection
