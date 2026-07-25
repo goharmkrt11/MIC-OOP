@@ -1,10 +1,10 @@
 namespace ClassLib
 {
-    public class ChessBoard
+    public class Board
     {
         private readonly char[,] board;
 
-        public ChessBoard()
+        public Board()
         {
             board = new char[9, 9];
 
@@ -31,7 +31,7 @@ namespace ClassLib
             return board;
         }
 
-        public void PlacePiece(Position position, ChessPiece piece)
+        public void PlacePiece(Position position, Piece piece)
         {
             this[position.Row, position.Column] = piece.ToString()[0];
         }
