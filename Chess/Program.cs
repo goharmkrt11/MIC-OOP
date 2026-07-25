@@ -50,9 +50,9 @@ namespace ChessConsole
             return new Position(row, column);
         }
 
-        static ChessPiece ReadChessPiece()
+        static Piece ReadChessPiece()
         {
-            ChessPiece piece;
+            Piece piece;
 
             do
             {
