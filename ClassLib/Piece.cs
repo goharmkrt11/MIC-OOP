@@ -1,6 +1,6 @@
 namespace ClassLib
 {
-    public enum ChessPiece
+    public enum Piece
     {
         R,
         N,
