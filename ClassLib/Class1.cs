@@ -14,13 +14,13 @@ namespace ClassLib
     }
 
     public enum ChessPiece
-    {
-        R,
-        N,
-        B,
-        Q,
-        K
-    }
+{
+    R, // Rook
+    N, // Knight
+    B, // Bishop
+    Q, // Queen
+    K  // King
+}
 
     public class ChessBoard
     {
