@@ -1,19 +1,21 @@
-﻿using ClassLib;
+using ClassLib;
 
 namespace ChessConsole
 {
     internal class Program
     {
+        
         static void Main()
         {
-            char[,] board = ChessBoard.CreateMatrix();
+            ChessBoard chessBoard = new ChessBoard();
+            char[,] board = chessBoard.GetBoard();
 
             PrintBoard(board);
 
             Position position = ReadPosition();
             ChessPiece piece = ReadChessPiece();
 
-            ChessBoard.PlacePiece(board, position, piece);
+            chessBoard.PlacePiece(position, piece);
 
             PrintBoard(board);
 
