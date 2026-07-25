@@ -1,9 +1,10 @@
-﻿namespace ClassLib
+namespace ClassLib
 {
+    //TODO Separate classes
     public readonly struct Position
     {
-        public int Row { get; set; }
-        public char Column { get; set; }
+        public int Row { get; }
+        public char Column { get; }
 
         public Position(int row, char column)
         {
@@ -21,20 +22,38 @@
         K
     }
 
-    public static class ChessBoard
+    public class ChessBoard
     {
-        public static char[,] CreateMatrix()
+        private readonly char[,] board;
+
+        public ChessBoard()
         {
-            char[,] board = new char[9, 9];
+            board = new char[9, 9];
 
-            FillBoard(board);
-            FillLetters(board);
-            FillNumbers(board);
+            FillBoard();
+            FillLetters();
+            FillNumbers();
+        }
 
+        public char this[int row, char column]
+        {
+            get
+            {
+                return board[row - 1, column - 'A' + 1];
+            }
+
+            set
+            {
+                board[row - 1, column - 'A' + 1] = value;
+            }
+        }
+
+        public char[,] GetBoard()
+        {
             return board;
         }
 
-        private static void FillNumbers(char[,] board)
+        private void FillNumbers()
         {
             for (int i = 0; i < 8; i++)
             {
@@ -42,7 +61,7 @@
             }
         }
 
-        private static void FillLetters(char[,] board)
+        private void FillLetters()
         {
             char letter = 'A';
 
@@ -53,23 +72,24 @@
             }
         }
 
-        private static void FillBoard(char[,] board)
+        private void FillBoard()
         {
             for (int i = 0; i < 8; i++)
             {
                 for (int j = 1; j < 9; j++)
                 {
-                    board[i, j] = (i + j) % 2 == 0 ? '#' : '*';
+                    board[i, j] =
+                        (i + j) % 2 == 0 ? '#' : '*';
                 }
             }
         }
 
-        public static void PlacePiece(char[,] board, Position position, ChessPiece piece)
+        public void PlacePiece(
+            Position position,
+            ChessPiece piece)
         {
-            int row = position.Row - 1;
-            int column = position.Column - 'A' + 1;
-
-            board[row, column] = piece.ToString()[0];
+            this[position.Row, position.Column] =
+                piece.ToString()[0];
         }
     }
 }
