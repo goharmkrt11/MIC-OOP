@@ -42,9 +42,8 @@ namespace ChessConsole
             {
                 Console.WriteLine("Please enter a column (A-H):");
             }
-            while (!char.TryParse(
-                       (Console.ReadLine() ?? "").ToUpper(),
-                       out column)
+            while (!char.TryParse((Console.ReadLine() ?? "").ToUpper(), out column)                    
+                       
                    || column < 'A'
                    || column > 'H');
 
@@ -60,10 +59,7 @@ namespace ChessConsole
                 Console.WriteLine(
                     "Please enter a chess piece (R, N, B, Q, K):");
             }
-            while (!Enum.TryParse(
-                       (Console.ReadLine() ?? "").ToUpper(),
-                       out piece)
-                   || !Enum.IsDefined(piece));
+            while (!Enum.TryParse((Console.ReadLine() ?? "").ToUpper(), out piece) || !Enum.IsDefined(piece));
 
             return piece;
         }
