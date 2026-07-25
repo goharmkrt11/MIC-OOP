@@ -78,18 +78,14 @@ namespace ClassLib
             {
                 for (int j = 1; j < 9; j++)
                 {
-                    board[i, j] =
-                        (i + j) % 2 == 0 ? '#' : '*';
+                    board[i, j] = (i + j) % 2 == 0 ? '#' : '*';
                 }
             }
         }
 
-        public void PlacePiece(
-            Position position,
-            ChessPiece piece)
+        public void PlacePiece(Position position, ChessPiece piece)
         {
-            this[position.Row, position.Column] =
-                piece.ToString()[0];
+            this[position.Row, position.Column] = piece.ToString()[0];
         }
     }
 }
