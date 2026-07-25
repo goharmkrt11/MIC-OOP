@@ -7,21 +7,21 @@ namespace ChessConsole
         
         static void Main()
         {
-            ChessBoard chessBoard = new ChessBoard();
-            char[,] board = chessBoard.GetBoard();
-
-            PrintBoard(board);
-
-            Position position = ReadPosition();
-            ChessPiece piece = ReadChessPiece();
-
-            chessBoard.PlacePiece(position, piece);
-
-            PrintBoard(board);
-
-            Console.WriteLine();
-            Console.WriteLine("Press any key to exit...");
-            Console.ReadKey();
+                    Board chessBoard = new Board();
+                    char[,] board = chessBoard.GetBoard();
+                
+                    PrintBoard(board);
+                
+                    Position position = ReadPosition();
+                    Piece piece = ReadChessPiece();
+                
+                    chessBoard.PlacePiece(position, piece);
+                
+                    PrintBoard(board);
+                
+                    Console.WriteLine();
+                    Console.WriteLine("Press any key to exit...");
+                    Console.ReadKey();
         }
 
         static Position ReadPosition()
