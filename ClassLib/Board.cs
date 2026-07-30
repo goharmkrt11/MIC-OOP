@@ -15,12 +15,12 @@ namespace ClassLib
         {
             get
             {
-                return board[row - 1, column - 'A'];
+                return board[8-row , column - 'A'];
             }
 
             set
             {
-                board[row - 1, column - 'A'] = value;
+                board[8-row , column - 'A'] = value;
             }
         }
 

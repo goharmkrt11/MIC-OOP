@@ -21,24 +21,21 @@ namespace ChessConsole
 
                     Position endPosition = ReadPosition("***Please enter end position***");
 
-            //TODO: stugel qary, u taki exacy petqa tanel petqa ogtagorcel switch case u yst dra kanchel
-
-                    bool isDiagonal = startPosition.IsDiagonalMove(endPosition);
-
-                    if (isDiagonal)
+                    switch (piece)
                     {
+                       /* case Piece.R:
+                        case Piece.N:
+                        case Piece.K:*/
+                        case Piece.B:
+                            TryMoveBishop(board, startPosition, endPosition, piece, chessBoard);
+                            break;
+                        case Piece.Q:
+                            TryMoveQueen(board, startPosition, endPosition, piece, chessBoard);
+                            break;
+            }
 
-                        chessBoard.MovePiece(startPosition, endPosition, piece);       
-                        PrintBoard(board);
-                    }
 
-                    else
-                    {
-                        Console.WriteLine("We can't do this move!");
-                    }
-
-
-                Console.WriteLine();
+                    Console.WriteLine();
                     Console.WriteLine("Press any key to exit...");
                     Console.ReadKey();
         }
@@ -97,7 +94,7 @@ namespace ChessConsole
 
             for (int i = 0; i < 8; i++)
             {
-                Console.Write($"{i + 1}|");
+                Console.Write($"{8-i}|");
 
                 for (int j = 0; j < 8; j++)
                 {
@@ -129,8 +126,47 @@ namespace ChessConsole
             Console.WriteLine();
             Console.WriteLine();
         }
+       
+        static void TryMoveBishop(Position startPosition, Position endPosition, Piece piece,Board chessBoard)
+        {
+            if (startPosition != endPosition)
+            {
+                bool isDiagonal = startPosition.IsDiagonalMove(endPosition);
 
-        
+                if (isDiagonal)
+                {
+                    chessBoard.MovePiece(startPosition, endPosition, piece);
+                    PrintBoard(chessBoard.GetBoard());
+                }
+
+                else
+                {
+                    Console.WriteLine("We can't do this move!");
+                }
+            }
+            else Console.WriteLine("The start position and end position cannot be the same!");
+        }
+
+        static void TryMoveQueen(Position startPosition, Position endPosition, Piece piece, Board chessBoard)
+        {
+            if (startPosition != endPosition)
+            {
+                bool isDiagonal = startPosition.IsDiagonalMove(endPosition);
+                bool isStraight= startPosition.IsStraightMove(endPosition);
+
+                if (isDiagonal || isStraight)
+                {
+                    chessBoard.MovePiece(startPosition, endPosition, piece);
+                    PrintBoard(chessBoard.GetBoard());
+                }
+
+                else
+                {
+                    Console.WriteLine("We can't do this move!");
+                }
+            }
+            else Console.WriteLine("The start position and end position cannot be the same!");
+        }
 
     }
 }
