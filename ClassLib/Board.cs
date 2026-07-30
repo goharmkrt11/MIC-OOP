@@ -6,23 +6,21 @@ namespace ClassLib
 
         public Board()
         {
-            board = new char[9, 9];
+            board = new char[8, 8];
 
             FillBoard();
-            FillLetters();
-            FillNumbers();
         }
 
         public char this[int row, char column]
         {
             get
             {
-                return board[row - 1, column - 'A' + 1];
+                return board[row - 1, column - 'A'];
             }
 
             set
             {
-                board[row - 1, column - 'A' + 1] = value;
+                board[row - 1, column - 'A'] = value;
             }
         }
 
@@ -33,35 +31,33 @@ namespace ClassLib
 
         public void PlacePiece(Position position, Piece piece)
         {
-            this[position.Row, position.Column] = piece.ToString()[0];
+            this[position.Row, position.Column] =
+                piece.ToString()[0];
         }
 
-        private void FillNumbers()
+        public void MovePiece(Position startPosition, Position endPosition, Piece piece)
         {
-            for (int i = 0; i < 8; i++)
-            {
-                board[i, 0] = (char)('1' + i);
-            }
-        }
+            PlacePiece(endPosition, piece);
 
-        private void FillLetters()
-        {
-            char letter = 'A';
-
-            for (int i = 1; i < 9; i++)
+            if ((startPosition.Row + startPosition.Column) % 2 == 0)
             {
-                board[8, i] = letter;
-                letter++;
+                this [startPosition.Row, startPosition.Column] = '#';
             }
+            else
+            {
+                this [startPosition.Row, startPosition.Column] = '*';
+            }
+
         }
 
         private void FillBoard()
         {
             for (int i = 0; i < 8; i++)
             {
-                for (int j = 1; j < 9; j++)
+                for (int j = 0; j < 8; j++)
                 {
-                    board[i, j] = (i + j) % 2 == 0 ? '#' : '*';
+                    board[i, j] =
+                        (i + j) % 2 == 0 ? '#' : '*';
                 }
             }
         }

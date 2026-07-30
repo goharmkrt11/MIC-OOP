@@ -10,5 +10,17 @@ namespace ClassLib
             Row = row;
             Column = column;
         }
+        public bool IsDiagonalMove( Position endPosition)
+        {
+            if (Math.Abs(this.Row - endPosition.Row) == Math.Abs(this.Column - endPosition.Column))
+            {
+                return true;
+            }
+            return false;
+
+        }
     }
+     
+    
+    
 }
