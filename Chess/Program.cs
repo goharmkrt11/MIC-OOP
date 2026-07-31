@@ -8,31 +8,39 @@ namespace ChessConsole
         static void Main()
         {
                     Board chessBoard = new Board();
-                    char[,] board = chessBoard.GetBoard();
-                
+                    char[,] board = chessBoard.GetBoard();                
                     PrintBoard(board);
                 
                     Position startPosition = ReadPosition("***Please enter start position***");
                     Piece piece = ReadChessPiece();
-                
-                    chessBoard.PlacePiece(startPosition, piece);
-                
+                    if (piece == Piece.R || piece == Piece.N || piece == Piece.K)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("This is not a valid move!!!");
+                        Console.ResetColor();
+
+                        return;
+                        
+                    }
+
+                    chessBoard.PlacePiece(startPosition, piece);                
                     PrintBoard(board);
 
                     Position endPosition = ReadPosition("***Please enter end position***");
 
                     switch (piece)
                     {
-                       /* case Piece.R:
+                        /*case Piece.R:
                         case Piece.N:
                         case Piece.K:*/
+
                         case Piece.B:
-                            TryMoveBishop(board, startPosition, endPosition, piece, chessBoard);
+                            TryMoveBishop( startPosition, endPosition, piece, chessBoard);
                             break;
                         case Piece.Q:
-                            TryMoveQueen(board, startPosition, endPosition, piece, chessBoard);
+                            TryMoveQueen( startPosition, endPosition, piece, chessBoard);
                             break;
-            }
+                    }
 
 
                     Console.WriteLine();
@@ -85,7 +93,7 @@ namespace ChessConsole
                     "Please enter a chess piece (R, N, B, Q, K):");
             }
             while (!Enum.TryParse((Console.ReadLine() ?? "").ToUpper(), out piece) || !Enum.IsDefined(piece));
-
+            
             return piece;
         }
 
@@ -129,7 +137,7 @@ namespace ChessConsole
        
         static void TryMoveBishop(Position startPosition, Position endPosition, Piece piece,Board chessBoard)
         {
-            if (startPosition != endPosition)
+            if (startPosition.Column != endPosition.Column || startPosition.Row!=endPosition.Row)
             {
                 bool isDiagonal = startPosition.IsDiagonalMove(endPosition);
 
@@ -149,7 +157,7 @@ namespace ChessConsole
 
         static void TryMoveQueen(Position startPosition, Position endPosition, Piece piece, Board chessBoard)
         {
-            if (startPosition != endPosition)
+            if (startPosition.Column != endPosition.Column || startPosition.Row != endPosition.Row)
             {
                 bool isDiagonal = startPosition.IsDiagonalMove(endPosition);
                 bool isStraight= startPosition.IsStraightMove(endPosition);
