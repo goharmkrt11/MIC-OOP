@@ -16,7 +16,7 @@ namespace ChessConsole
                     if (piece == Piece.R || piece == Piece.N || piece == Piece.K)
                     {
                         Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine("This is not a valid move!!!");
+                        Console.WriteLine("Valid moves for this piece have not been implemented yet!!!");
                         Console.ResetColor();
 
                         return;
